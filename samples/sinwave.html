@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<script src="../arraytowav.js"></script>
+<script>
+  var waves = [ new Float32Array( 44100 ), new Float32Array( 44100 ) ];
+  for ( var iSample = 0; iSample < 44100; iSample ++ ) {
+    var t = iSample / 44100;
+    waves[ 0 ][ iSample ] = Math.sin( t * 440.0 * Math.PI * 2.0 );
+    waves[ 1 ][ iSample ] = Math.sin( t * 440.0 * Math.PI * 2.0 );
+  }
+
+  arrayToWav( waves, {
+    download: 'download.wav'
+  } );
+</script>
